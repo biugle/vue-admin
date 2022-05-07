@@ -1,0 +1,10 @@
+.DS_Store/**
+.idea/**
+.vscode/**
+.eslintrc.js
+.prettierrc.js
+.editorconfig
+**/node_modules/**
+**/dist/**
+**/test/**
+**/**.min.*
