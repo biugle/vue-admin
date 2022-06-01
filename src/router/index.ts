@@ -2,7 +2,7 @@
  * @Author: HxB
  * @Date: 2022-05-06 18:04:44
  * @LastEditors: DoubleAm
- * @LastEditTime: 2022-05-12 17:21:09
+ * @LastEditTime: 2022-06-01 18:30:43
  * @Description: 路由配置文件
  * @FilePath: \vue-admin\src\router\index.ts
  */
@@ -98,7 +98,7 @@ export const SUB_ROUTES: any[] = [
         path: '/test/a',
         name: 'TestA',
         meta: {
-          parentName: 'Test',
+          parentMenuName: 'Test',
           title: 'TestA',
           defaultKeepAlive: true, // 动态 keepAlive
           keepAliveName: '403', // keepAlive 名称必须与组件名称一致
@@ -119,7 +119,7 @@ export const SUB_ROUTES: any[] = [
         path: '/test/b',
         name: 'TestB',
         meta: {
-          parentName: 'Test',
+          parentMenuName: 'Test',
           title: 'TestB',
         },
         icon: 'SmileFilled',
@@ -129,7 +129,7 @@ export const SUB_ROUTES: any[] = [
         path: '/test/c',
         name: 'TestC',
         meta: {
-          parentName: 'Test',
+          parentMenuName: 'Test',
           title: 'TestC',
           keepAlive: true,
           keepAliveName: '500',

@@ -2,7 +2,7 @@
  * @Author: HxB
  * @Date: 2022-04-13 11:18:13
  * @LastEditors: DoubleAm
- * @LastEditTime: 2022-05-12 18:02:23
+ * @LastEditTime: 2022-06-01 18:25:16
  * @Description: 全局请求工具
  * @FilePath: \vue-admin\src\utils\xhttp.ts
  */
@@ -22,7 +22,7 @@ const $http = XHttp.create(
     //   delay: 1000, // 每次重试的基础延迟时间
     // },
     requestHandler: (config: any) => {
-      hide = message.loading('正在请求数据...', 0);
+      hide = message.loading('正在请求数据...');
       console.log('requestHandler', config); // 请求前的拦截处理 可自行打印日志log
       // console.log(config?.cancelRequest); // 请求取消函数
     },

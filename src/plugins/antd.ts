@@ -2,7 +2,7 @@
  * @Author: HxB
  * @Date: 2022-05-06 18:07:27
  * @LastEditors: DoubleAm
- * @LastEditTime: 2022-05-12 17:12:38
+ * @LastEditTime: 2022-06-01 18:22:33
  * @Description: 按需动态导入 antd 组件
  * @FilePath: \vue-admin\src\plugins\antd.ts
  */
@@ -43,6 +43,12 @@ message.config({
   maxCount: 5,
   rtl: false,
 });
+
+const originLoading: any = message.loading;
+
+message.loading = (content: any, duration?: any, onClose?: any): any => {
+  return originLoading(content, duration ?? 0, onClose);
+};
 
 notification.config({
   placement: 'topRight',
