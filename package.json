@@ -9,6 +9,7 @@
     "lint": "npm run prettier && npm run eslint",
     "eslint": "eslint ./ --fix --ext .ts,.tsx,.js,.jsx,.vue",
     "prettier": "prettier --write ./**/*.{ts,tsx,js,jsx,vue,html,css,scss,less}",
+    "update-x": "npm i js-xhttp js-xxx js-xcall",
     "clean": "xcmd clean",
     "time": "xcmd update-time"
   },
@@ -22,7 +23,7 @@
     "ant-design-vue": "^3.2.3",
     "js-xcall": "^1.1.1",
     "js-xhttp": "^1.4.8",
-    "js-xxx": "^1.1.6",
+    "js-xxx": "^1.1.7",
     "store": "^2.0.12",
     "vue": "^3.2.25",
     "vue-router": "^4.0.15",
