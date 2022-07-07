@@ -2,7 +2,7 @@
  * @Author: HxB
  * @Date: 2022-05-06 18:07:27
  * @LastEditors: DoubleAm
- * @LastEditTime: 2022-06-01 18:22:33
+ * @LastEditTime: 2022-07-07 11:48:24
  * @Description: 按需动态导入 antd 组件
  * @FilePath: \vue-admin\src\plugins\antd.ts
  */
@@ -35,6 +35,7 @@ import {
   Checkbox,
   message,
   notification,
+  Tooltip,
 } from 'ant-design-vue';
 
 message.config({
@@ -72,6 +73,7 @@ const antdComponents = [
   Checkbox,
   Result,
   ConfigProvider,
+  Tooltip,
 ];
 
 // 应用组件

@@ -2,11 +2,12 @@
  * @Author: HxB
  * @Date: 2022-05-06 18:04:44
  * @LastEditors: DoubleAm
- * @LastEditTime: 2022-06-01 18:30:43
- * @Description: 路由配置文件
+ * @LastEditTime: 2022-07-07 10:26:19
+ * @Description: 主路由配置文件
  * @FilePath: \vue-admin\src\router\index.ts
  */
 import { createRouter, createWebHashHistory, RouteRecordRaw } from 'vue-router';
+import * as subRoutesConfig from './sub_routes_config';
 import { authRoute } from './auth_route';
 
 const Layout = () => import('@/pages/Layout/index.vue');
@@ -73,96 +74,21 @@ const router = createRouter({
   routes,
 });
 
-export const SUB_ROUTES: any[] = [
-  {
-    path: '/test/x',
-    name: 'TestX',
-    meta: {
-      title: 'TestX',
-      keepAlive: true,
-      roles: ['admin'],
-      // hidden: true,
-    },
-    icon: 'HeartOutlined',
-    component: () => import('@/pages/test_pages/x.vue'),
-  },
-  {
-    // path: "/test",
-    name: 'Test',
-    meta: {
-      title: 'Test',
-    },
-    icon: 'FolderViewOutlined',
-    routes: [
-      {
-        path: '/test/a',
-        name: 'TestA',
-        meta: {
-          parentMenuName: 'Test',
-          title: 'TestA',
-          defaultKeepAlive: true, // 动态 keepAlive
-          keepAliveName: '403', // keepAlive 名称必须与组件名称一致
-        },
-        icon: 'FontColorsOutlined',
-        component: () => import('@/pages/error_pages/403.vue'),
-        beforeEnter: (to: any, from: any, next: any) => {
-          // 在 TestC 路由跳转过来时 需刷新 TestA 路由
-          if (from.name == 'TestC') {
-            to.meta.keepAlive = false;
-          } else {
-            to.meta.keepAlive = true;
-          }
-          next();
-        },
-      },
-      {
-        path: '/test/b',
-        name: 'TestB',
-        meta: {
-          parentMenuName: 'Test',
-          title: 'TestB',
-        },
-        icon: 'SmileFilled',
-        component: () => import('@/pages/error_pages/404.vue'),
-      },
-      {
-        path: '/test/c',
-        name: 'TestC',
-        meta: {
-          parentMenuName: 'Test',
-          title: 'TestC',
-          keepAlive: true,
-          keepAliveName: '500',
-        },
-        icon: 'SmileTwoTone',
-        component: () => import('@/pages/error_pages/500.vue'),
-      },
-    ],
-  },
-  {
-    path: '/test/y',
-    name: 'TestY',
-    meta: {
-      title: 'TestY',
-    },
-    component: () => import('@/pages/test_pages/y.vue'),
-  },
-  {
-    path: '/test/z',
-    name: 'TestZ',
-    meta: {
-      title: 'TestZ',
-      roles: ['admin-pro'],
-    },
-    component: () => import('@/pages/test_pages/z.vue'),
-  },
-];
+function getRoutesConfig(routes: any[]) {
+  routes.forEach((routeConfig: any) => {
+    if (routeConfig.routes) {
+      getRoutesConfig(routeConfig.routes);
+    } else {
+      router.addRoute('Home', routeConfig);
+    }
+  });
+}
 
-SUB_ROUTES.forEach((routeConfig: any) => {
-  routeConfig.routes
-    ? routeConfig.routes.forEach((subRoute: any) => router.addRoute('Home', subRoute))
-    : router.addRoute('Home', routeConfig);
-});
+for (const subRoutesKey in subRoutesConfig) {
+  // eslint-disable-next-line @typescript-eslint/ban-ts-comment
+  // @ts-ignore
+  getRoutesConfig(subRoutesConfig[subRoutesKey]);
+}
 
 authRoute(router);
 

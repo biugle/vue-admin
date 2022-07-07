@@ -2,7 +2,7 @@
  * @Author: HxB
  * @Date: 2022-05-05 16:49:53
  * @LastEditors: DoubleAm
- * @LastEditTime: 2022-06-01 18:30:35
+ * @LastEditTime: 2022-07-07 15:23:42
  * @Description: 菜单组件
  * @FilePath: \vue-admin\src\pages\Layout\menu\menu.vue
 -->
@@ -56,11 +56,11 @@ export default defineComponent({
     const setMenuKey = () => {
       if (!route.meta.hidden) {
         selectedKeys.value = [route.name as string];
-        openKeys.value = [route.meta.parentMenuName as string];
-        // alert(JSON.stringify(route.meta));
-        // openKeys.value.push(route.meta.parentMenuName as string);
-        // route.matched.forEach((item) => {
-        //   openKeys.value.push(item.name as string);
+        openKeys.value = Array.isArray(route.meta.parentMenuName)
+          ? (route.meta.parentMenuName as string[])
+          : [route.meta.parentMenuName as string];
+        // route.matched.forEach(item => {
+        //   console.log(item);
         // });
       }
     };

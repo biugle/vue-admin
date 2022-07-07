@@ -2,7 +2,7 @@
  * @Author: HxB
  * @Date: 2022-05-07 18:16:01
  * @LastEditors: DoubleAm
- * @LastEditTime: 2022-05-12 17:39:35
+ * @LastEditTime: 2022-07-07 10:16:17
  * @Description: user state
  * @FilePath: \vue-admin\src\store\modules\user.ts
  */
@@ -10,7 +10,7 @@ import storage from 'store';
 import { AllState } from '@/store';
 import { ActionContext } from 'vuex';
 import { login } from '@/services/user';
-import { SUB_ROUTES } from '@/router';
+import { SUB_ROUTES } from '@/router/sub_routes_config';
 import { catchPromise } from 'js-xxx';
 
 // 处理用户登录、登出、个人信息、权限路由
