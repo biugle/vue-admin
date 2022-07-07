@@ -2,7 +2,7 @@
  * @Author: HxB
  * @Date: 2022-07-07 10:14:09
  * @LastEditors: DoubleAm
- * @LastEditTime: 2022-07-07 15:18:49
+ * @LastEditTime: 2022-07-07 17:59:09
  * @Description: 子路由配置
  * @FilePath: \vue-admin\src\router\sub_routes_config.ts
  */
@@ -75,7 +75,7 @@ export const SUB_ROUTES: any[] = [
         meta: {
           title: '多级菜单 MenuA',
         },
-        icon: 'PicRightOutlined',
+        // icon: 'PicRightOutlined',
         routes: [
           {
             name: 'sub_menu_b',

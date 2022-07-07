@@ -1,8 +1,9 @@
+/* eslint-disable indent */
 /*
  * @Author: HxB
  * @Date: 2022-05-06 18:04:44
  * @LastEditors: DoubleAm
- * @LastEditTime: 2022-07-07 10:26:19
+ * @LastEditTime: 2022-07-07 18:02:19
  * @Description: 主路由配置文件
  * @FilePath: \vue-admin\src\router\index.ts
  */
@@ -17,7 +18,7 @@ const defaultRoute = '/test/x';
 export const routes: any[] = [
   {
     path: '/',
-    name: 'Home',
+    name: 'home',
     redirect: defaultRoute,
     component: () => Layout(),
     meta: {
@@ -26,7 +27,7 @@ export const routes: any[] = [
   },
   {
     path: '/login',
-    name: 'Login',
+    name: 'login',
     component: () => import('@/pages/Login/index.vue'),
     meta: {
       title: '登录',
@@ -74,24 +75,90 @@ const router = createRouter({
   routes,
 });
 
-function getRoutesConfig(routes: any[]) {
+interface BreadcrumbRoute {
+  path: string;
+  breadcrumbName: string;
+  icon: string;
+  children?: Array<{
+    path: string;
+    breadcrumbName: string;
+    icon: string;
+  }>;
+}
+const ROUTE_MENU_CONFIG_ALL: {
+  [propName: string]: {
+    [propName: string]: {
+      path: string;
+      title: string;
+      name: string;
+      openKeys: string[];
+      breadcrumbRoutes: BreadcrumbRoute[];
+      [propName: string]: any;
+    };
+  };
+} = {};
+function getRoutesConfig(
+  subRoutesKey: string,
+  routes: any[],
+  openKeys: string[] = [],
+  breadcrumbRoutes: BreadcrumbRoute[] = [{ path: '/', breadcrumbName: '首页', icon: 'HomeOutlined' }],
+): void {
+  if (!ROUTE_MENU_CONFIG_ALL[subRoutesKey]) {
+    ROUTE_MENU_CONFIG_ALL[subRoutesKey] = {};
+  }
   routes.forEach((routeConfig: any) => {
     if (routeConfig.routes) {
-      getRoutesConfig(routeConfig.routes);
+      getRoutesConfig(
+        subRoutesKey,
+        routeConfig.routes,
+        openKeys.length == 0 ? [routeConfig.name] : [...openKeys, routeConfig.name],
+        [
+          ...breadcrumbRoutes,
+          {
+            path: routeConfig.path,
+            breadcrumbName: routeConfig.meta.title,
+            icon: routeConfig.icon ?? 'FolderOpenOutlined',
+            children:
+              routeConfig.routes.length === 1
+                ? undefined
+                : routeConfig.routes.map((childRoute: any) => {
+                    return {
+                      path: childRoute.path,
+                      breadcrumbName: childRoute.meta.title,
+                      icon: childRoute.icon ?? 'UnorderedListOutlined',
+                    };
+                  }),
+          },
+        ],
+      );
     } else {
-      router.addRoute('Home', routeConfig);
+      ROUTE_MENU_CONFIG_ALL[subRoutesKey][routeConfig.name] = {
+        ...routeConfig,
+        path: routeConfig.path,
+        title: routeConfig.meta.title,
+        name: routeConfig.name,
+        openKeys: openKeys,
+        breadcrumbRoutes: [
+          ...breadcrumbRoutes,
+          {
+            path: routeConfig.path,
+            breadcrumbName: routeConfig.meta.title,
+            icon: routeConfig.icon ?? 'UnorderedListOutlined',
+          },
+        ],
+      };
+      router.addRoute('home', routeConfig);
     }
   });
 }
-
 for (const subRoutesKey in subRoutesConfig) {
   // eslint-disable-next-line @typescript-eslint/ban-ts-comment
   // @ts-ignore
-  getRoutesConfig(subRoutesConfig[subRoutesKey]);
+  getRoutesConfig(subRoutesKey, subRoutesConfig[subRoutesKey]);
 }
 
 authRoute(router);
 
 export default router;
-
 export const whiteList = ['/login', '/403', '/404', '/500'];
+export const ROUTE_MENU_CONFIG_ALL_OBJ = ROUTE_MENU_CONFIG_ALL['SUB_ROUTES'];

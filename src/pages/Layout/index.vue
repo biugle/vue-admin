@@ -2,7 +2,7 @@
  * @Author: HxB
  * @Date: 2022-05-05 16:49:53
  * @LastEditors: DoubleAm
- * @LastEditTime: 2022-05-12 17:31:40
+ * @LastEditTime: 2022-07-07 17:03:41
  * @Description: layout 入口
  * @FilePath: \vue-admin\src\pages\Layout\index.vue
 -->
@@ -21,6 +21,7 @@
 
       <!-- 内容 -->
       <a-layout-content class="container">
+        <layout-nav />
         <layout-tabs />
       </a-layout-content>
     </a-layout>
@@ -32,6 +33,7 @@ import { defineComponent, nextTick, provide, ref, watch } from 'vue';
 import LayoutMenu from './menu/menu.vue';
 import LayoutTabs from './tabs/tabs.vue';
 import LayoutHeader from './header/header.vue';
+import LayoutNav from './nav/nav.vue';
 import { useStore } from 'vuex';
 export default defineComponent({
   name: 'Layout',
@@ -39,6 +41,7 @@ export default defineComponent({
     LayoutMenu,
     LayoutHeader,
     LayoutTabs,
+    LayoutNav,
   },
   setup() {
     const store = useStore();

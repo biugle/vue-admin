@@ -2,7 +2,7 @@
  * @Author: HxB
  * @Date: 2022-05-05 16:49:53
  * @LastEditors: DoubleAm
- * @LastEditTime: 2022-07-07 15:23:42
+ * @LastEditTime: 2022-07-07 17:24:56
  * @Description: 菜单组件
  * @FilePath: \vue-admin\src\pages\Layout\menu\menu.vue
 -->
@@ -31,6 +31,7 @@ import MenuItem from './menu_create';
 import { useRoute } from 'vue-router';
 import { mapState, useStore } from 'vuex';
 import { defineComponent, ref, watch, onBeforeMount, nextTick } from 'vue';
+import { ROUTE_MENU_CONFIG_ALL_OBJ } from '@/router';
 export default defineComponent({
   name: 'LayoutMenu',
   computed: {
@@ -56,9 +57,7 @@ export default defineComponent({
     const setMenuKey = () => {
       if (!route.meta.hidden) {
         selectedKeys.value = [route.name as string];
-        openKeys.value = Array.isArray(route.meta.parentMenuName)
-          ? (route.meta.parentMenuName as string[])
-          : [route.meta.parentMenuName as string];
+        openKeys.value = ROUTE_MENU_CONFIG_ALL_OBJ[route.name as string].openKeys as string[];
         // route.matched.forEach(item => {
         //   console.log(item);
         // });

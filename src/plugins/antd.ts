@@ -2,7 +2,7 @@
  * @Author: HxB
  * @Date: 2022-05-06 18:07:27
  * @LastEditors: DoubleAm
- * @LastEditTime: 2022-07-07 11:48:24
+ * @LastEditTime: 2022-07-07 16:57:33
  * @Description: 按需动态导入 antd 组件
  * @FilePath: \vue-admin\src\plugins\antd.ts
  */
@@ -36,6 +36,7 @@ import {
   message,
   notification,
   Tooltip,
+  Breadcrumb,
 } from 'ant-design-vue';
 
 message.config({
@@ -74,6 +75,7 @@ const antdComponents = [
   Result,
   ConfigProvider,
   Tooltip,
+  Breadcrumb,
 ];
 
 // 应用组件
