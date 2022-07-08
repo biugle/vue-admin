@@ -2,12 +2,12 @@
  * @Author: HxB
  * @Date: 2022-07-07 16:57:08
  * @LastEditors: DoubleAm
- * @LastEditTime: 2022-07-08 10:26:09
+ * @LastEditTime: 2022-07-08 11:38:38
  * @Description: 面包屑导航
  * @FilePath: \vue-admin\src\pages\Layout\nav\nav.vue
 -->
 <template>
-  <div style="margin: 5px 5px 0">
+  <div class="breadcrumb-view">
     <a-breadcrumb :routes="routes">
       <template #itemRender="{ route, paths }">
         <span v-if="routes.indexOf(route) === routes.length - 1 || !route.path">
@@ -47,6 +47,13 @@ export default defineComponent({
 });
 </script>
 <style lang="scss">
+.breadcrumb-view {
+  z-index: 999999;
+  padding-top: 5px;
+  position: sticky;
+  top: 0;
+  background: #f0f2f5;
+}
 .ant-breadcrumb {
   cursor: pointer;
 }

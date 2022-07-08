@@ -2,7 +2,7 @@
  * @Author: HxB
  * @Date: 2022-05-05 16:49:53
  * @LastEditors: DoubleAm
- * @LastEditTime: 2022-05-12 17:55:28
+ * @LastEditTime: 2022-07-08 11:38:28
  * @Description: 标签页组件
  * @FilePath: \vue-admin\src\pages\Layout\tabs\tabs.vue
 -->
@@ -216,9 +216,10 @@ export default defineComponent({
 </style>
 <style lang="scss">
 .tabs-view {
+  z-index: 999999;
   padding: 5px 0;
+  top: 27px;
   position: sticky;
-  top: 0;
   background: #f0f2f5;
 
   &.only-child {
