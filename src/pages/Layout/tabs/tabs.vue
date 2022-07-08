@@ -2,7 +2,7 @@
  * @Author: HxB
  * @Date: 2022-05-05 16:49:53
  * @LastEditors: DoubleAm
- * @LastEditTime: 2022-07-08 16:21:57
+ * @LastEditTime: 2022-07-08 18:10:02
  * @Description: 标签页组件
  * @FilePath: \vue-admin\src\pages\Layout\tabs\tabs.vue
 -->
@@ -153,6 +153,7 @@ export default defineComponent({
       if (antdAction === 'remove') {
         store.commit('tabs/removeTab', targetKey);
       }
+      checkTabs();
     };
 
     const condition = (tab: TabItem, index: number, item: any) => {
@@ -173,6 +174,7 @@ export default defineComponent({
           store.commit('tabs/removeOther', index);
           break;
       }
+      checkTabs();
     };
 
     const showRoute: boolean | undefined = inject<boolean>('showRoute');
