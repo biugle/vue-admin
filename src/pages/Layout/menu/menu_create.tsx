@@ -2,7 +2,7 @@
  * @Author: HxB
  * @Date: 2022-05-09 16:35:35
  * @LastEditors: DoubleAm
- * @LastEditTime: 2022-07-07 12:32:02
+ * @LastEditTime: 2022-07-08 17:50:19
  * @Description: 创建菜单列表
  * @FilePath: \vue-admin\src\pages\Layout\menu\menu_create.tsx
  */
@@ -21,7 +21,11 @@ export default defineComponent({
       const titleText = router?.meta?.title ?? 'unknown';
       const subSlots: Slots = {
         title: () => [<span title={titleText}>{titleText}</span>],
-        icon: () => [<Icon icon={router.icon ?? 'FolderOpenOutlined'} />],
+        icon: () => [
+          <span title={titleText}>
+            <Icon icon={router.icon ?? 'FolderOpenOutlined'} />
+          </span>,
+        ],
       };
       return (
         <a-sub-menu v-slots={subSlots} key={router.name}>
