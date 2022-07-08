@@ -2,11 +2,11 @@
  * @Author: HxB
  * @Date: 2022-07-07 10:14:09
  * @LastEditors: DoubleAm
- * @LastEditTime: 2022-07-08 10:54:20
+ * @LastEditTime: 2022-07-08 15:20:22
  * @Description: 子路由配置
  * @FilePath: \vue-admin\src\router\sub_routes_config.ts
  */
-export const SUB_ROUTES_A: any[] = [
+const defaultRoutes: any[] = [
   {
     path: '/test/x',
     name: 'test_x',
@@ -19,6 +19,10 @@ export const SUB_ROUTES_A: any[] = [
     icon: 'HeartOutlined',
     component: () => import('@/pages/test_pages/x.vue'),
   },
+];
+
+export const SUB_ROUTES_A: any[] = [
+  ...defaultRoutes,
   {
     // path: "/test",
     name: 'test',
@@ -120,3 +124,39 @@ export const SUB_ROUTES_A: any[] = [
     component: () => import('@/pages/test_pages/z.vue'),
   },
 ];
+
+export const SUB_ROUTES_B: any[] = [
+  ...defaultRoutes,
+  {
+    path: '/demo/x',
+    name: 'DemoX',
+    meta: {
+      title: 'DemoX',
+      roles: ['admin'],
+    },
+    component: () => import('@/pages/test_pages/x.vue'),
+  },
+  {
+    path: '/demo/y',
+    name: 'DemoY',
+    meta: {
+      title: 'DemoY',
+      roles: ['admin'],
+    },
+    component: () => import('@/pages/test_pages/y.vue'),
+  },
+  {
+    path: '/demo/z',
+    name: 'DemoZ',
+    meta: {
+      title: 'DemoZ',
+      roles: ['admin'],
+    },
+    component: () => import('@/pages/test_pages/z.vue'),
+  },
+];
+
+export const ROUTE_KEYS_NAME: any = {
+  SUB_ROUTES_A: '测试路由A',
+  SUB_ROUTES_B: '测试路由B',
+};

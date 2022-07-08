@@ -2,7 +2,7 @@
  * @Author: HxB
  * @Date: 2022-05-06 18:07:27
  * @LastEditors: DoubleAm
- * @LastEditTime: 2022-07-08 11:13:55
+ * @LastEditTime: 2022-07-08 15:16:52
  * @Description: 按需动态导入 antd 组件
  * @FilePath: \vue-admin\src\plugins\antd.ts
  */
@@ -38,6 +38,8 @@ import {
   Tooltip,
   Breadcrumb,
   BackTop,
+  Badge,
+  Tag,
 } from 'ant-design-vue';
 
 message.config({
@@ -78,6 +80,8 @@ const antdComponents = [
   Tooltip,
   Breadcrumb,
   BackTop,
+  Badge,
+  Tag,
 ];
 
 // 应用组件

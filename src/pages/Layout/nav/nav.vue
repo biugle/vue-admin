@@ -2,7 +2,7 @@
  * @Author: HxB
  * @Date: 2022-07-07 16:57:08
  * @LastEditors: DoubleAm
- * @LastEditTime: 2022-07-08 13:56:04
+ * @LastEditTime: 2022-07-08 15:10:21
  * @Description: 面包屑导航
  * @FilePath: \vue-admin\src\pages\Layout\nav\nav.vue
 -->
@@ -24,7 +24,7 @@
 </template>
 <script lang="ts">
 import { defineComponent, ref, watch } from 'vue';
-import { ROUTE_MENU_CONFIG } from '@/router';
+import { ROUTE_MENU_CONFIGS } from '@/router';
 import { useRoute } from 'vue-router';
 import { useStore } from 'vuex';
 
@@ -34,10 +34,10 @@ export default defineComponent({
     const store = useStore();
     const route = useRoute();
 
-    const routes = ref(ROUTE_MENU_CONFIG[store.state.user.routeKey][route.name as string].breadcrumbRoutes);
+    const routes = ref(ROUTE_MENU_CONFIGS[route.name as string].breadcrumbRoutes);
 
     watch(route, to => {
-      routes.value = ROUTE_MENU_CONFIG[store.state.user.routeKey][to.name as string].breadcrumbRoutes;
+      routes.value = ROUTE_MENU_CONFIGS[to.name as string].breadcrumbRoutes;
     });
 
     return {

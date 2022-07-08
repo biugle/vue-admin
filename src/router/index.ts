@@ -3,7 +3,7 @@
  * @Author: HxB
  * @Date: 2022-05-06 18:04:44
  * @LastEditors: DoubleAm
- * @LastEditTime: 2022-07-07 18:28:23
+ * @LastEditTime: 2022-07-08 15:23:05
  * @Description: 主路由配置文件
  * @FilePath: \vue-admin\src\router\index.ts
  */
@@ -85,7 +85,7 @@ interface BreadcrumbRoute {
     icon: string;
   }>;
 }
-const ROUTE_MENU_CONFIG_ALL: {
+const ROUTE_MENU_CONFIG_ALL_OBJ: {
   [propName: string]: {
     [propName: string]: {
       path: string;
@@ -103,8 +103,8 @@ function getRoutesConfig(
   openKeys: string[] = [],
   breadcrumbRoutes: BreadcrumbRoute[] = [{ path: '/', breadcrumbName: '首页', icon: 'HomeOutlined' }],
 ): void {
-  if (!ROUTE_MENU_CONFIG_ALL[subRoutesKey]) {
-    ROUTE_MENU_CONFIG_ALL[subRoutesKey] = {};
+  if (!ROUTE_MENU_CONFIG_ALL_OBJ[subRoutesKey]) {
+    ROUTE_MENU_CONFIG_ALL_OBJ[subRoutesKey] = {};
   }
   routes.forEach((routeConfig: any) => {
     if (routeConfig.routes) {
@@ -132,7 +132,7 @@ function getRoutesConfig(
         ],
       );
     } else {
-      ROUTE_MENU_CONFIG_ALL[subRoutesKey][routeConfig.name] = {
+      ROUTE_MENU_CONFIG_ALL_OBJ[subRoutesKey][routeConfig.name] = {
         ...routeConfig,
         path: routeConfig.path,
         title: routeConfig.meta.title,
@@ -152,6 +152,9 @@ function getRoutesConfig(
   });
 }
 for (const subRoutesKey in subRoutesConfig) {
+  if ('ROUTE_KEYS_NAME' == subRoutesKey) {
+    continue;
+  }
   // eslint-disable-next-line @typescript-eslint/ban-ts-comment
   // @ts-ignore
   getRoutesConfig(subRoutesKey, subRoutesConfig[subRoutesKey]);
@@ -160,5 +163,8 @@ for (const subRoutesKey in subRoutesConfig) {
 authRoute(router);
 
 export default router;
-export const whiteList = ['/login', '/403', '/404', '/500'];
-export const ROUTE_MENU_CONFIG = ROUTE_MENU_CONFIG_ALL;
+export const whiteList: string[] = ['/login', '/403', '/404', '/500'];
+export const DEFAULT_ROUTE: string = defaultRoute;
+export const ROUTE_MENU_CONFIGS = Object.keys(ROUTE_MENU_CONFIG_ALL_OBJ).reduce((configs: any, key: string) => {
+  return { ...configs, ...ROUTE_MENU_CONFIG_ALL_OBJ[key] };
+}, {});

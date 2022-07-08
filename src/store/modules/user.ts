@@ -2,7 +2,7 @@
  * @Author: HxB
  * @Date: 2022-05-07 18:16:01
  * @LastEditors: DoubleAm
- * @LastEditTime: 2022-07-08 10:54:32
+ * @LastEditTime: 2022-07-08 17:10:58
  * @Description: user state
  * @FilePath: \vue-admin\src\store\modules\user.ts
  */
@@ -37,6 +37,15 @@ const state: UserState = {
   routeKey: storage.get('routeKey') ?? 'SUB_ROUTES_A',
 };
 
+function getAuthRoutes(routes: any[], roles: string[]) {
+  return routes.filter(route => {
+    if (route.meta && route.meta.roles) {
+      return roles.some(role => route.meta.roles.includes(role));
+    }
+    return true;
+  });
+}
+
 const user = {
   namespaced: true,
 
@@ -50,6 +59,9 @@ const user = {
 
     setRouteKey(state: UserState, routeKey: string) {
       state.routeKey = routeKey;
+      // eslint-disable-next-line @typescript-eslint/ban-ts-comment
+      // @ts-ignore
+      state.routes = getAuthRoutes(ALL_SUB_ROUTES[state.routeKey], state.roles);
       storage.set('routeKey', routeKey);
     },
 
@@ -61,9 +73,7 @@ const user = {
       state.roles = ['admin'];
       // eslint-disable-next-line @typescript-eslint/ban-ts-comment
       // @ts-ignore
-      state.routes = ALL_SUB_ROUTES[state.routeKey].filter((route: any) => {
-        return !route?.meta?.roles || route?.meta?.roles?.some((role: string) => state.roles.includes(role));
-      });
+      state.routes = getAuthRoutes(ALL_SUB_ROUTES[state.routeKey], state.roles);
     },
 
     // 用户退出登录

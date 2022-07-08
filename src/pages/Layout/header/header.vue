@@ -3,6 +3,7 @@
     <div class="header-left">
       <Icon icon="MenuUnfoldOutlined" v-if="collapsed" class="trigger" @click="collapsedChange(!collapsed)" />
       <Icon icon="MenuFoldOutlined" v-else class="trigger" @click="collapsedChange(!collapsed)" />
+      <header-btns />
     </div>
     <div class="header-right">
       <a-button type="ghost" shape="circle" :loading="!showRoute" @click="reloadRoute">
@@ -48,8 +49,13 @@ import {
   ComponentInternalInstance,
   getCurrentInstance,
 } from 'vue';
+import HeaderBtns from '../btns/btns.vue';
+
 export default defineComponent({
   name: 'LayoutHeader',
+  components: {
+    HeaderBtns,
+  },
   computed: {
     ...mapState({
       name: (state: any) => state.user.name,

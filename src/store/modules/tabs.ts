@@ -2,7 +2,7 @@
  * @Author: HxB
  * @Date: 2022-05-07 18:16:01
  * @LastEditors: DoubleAm
- * @LastEditTime: 2022-05-12 17:20:30
+ * @LastEditTime: 2022-07-08 16:23:58
  * @Description: tabs state
  * @FilePath: \vue-admin\src\store\modules\tabs.ts
  */
@@ -109,6 +109,10 @@ const tabs = {
     removeOther(state: TabState, index: number) {
       router.push(state.tabList[index]['fullPath']);
       state.tabList = [state.tabList[index]];
+    },
+
+    clearTabs(state: TabState) {
+      state.tabList = [];
     },
 
     refreshTab(state: TabState, index: number) {

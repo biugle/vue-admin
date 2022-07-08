@@ -2,7 +2,7 @@
  * @Author: HxB
  * @Date: 2022-05-05 16:49:53
  * @LastEditors: DoubleAm
- * @LastEditTime: 2022-07-08 13:55:52
+ * @LastEditTime: 2022-07-08 16:21:57
  * @Description: 标签页组件
  * @FilePath: \vue-admin\src\pages\Layout\tabs\tabs.vue
 -->
@@ -71,6 +71,8 @@ import {
   onBeforeRouteUpdate,
   onBeforeRouteLeave,
 } from 'vue-router';
+import { DEFAULT_ROUTE } from '@/router';
+
 export default defineComponent({
   name: 'LayoutTabs',
   computed: {
@@ -182,7 +184,6 @@ export default defineComponent({
 
     watch(store.state.tabs.tabList, tabList => {
       checkTabs();
-      store.commit('tabs/storageTabs', tabList);
     });
 
     const checkTabs = () => {
@@ -190,6 +191,7 @@ export default defineComponent({
         // let result: boolean = document.querySelectorAll('.tabs-view .ant-tabs-tab').length === 1;
         // onlyChild.value = result;
         onlyChild.value = store.state.tabs.tabList.length === 1;
+        store.commit('tabs/storageTabs');
       });
     };
 
