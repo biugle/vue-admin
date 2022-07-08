@@ -2,7 +2,7 @@
  * @Author: HxB
  * @Date: 2022-07-07 16:57:08
  * @LastEditors: DoubleAm
- * @LastEditTime: 2022-07-08 11:38:38
+ * @LastEditTime: 2022-07-08 13:56:04
  * @Description: 面包屑导航
  * @FilePath: \vue-admin\src\pages\Layout\nav\nav.vue
 -->
@@ -48,7 +48,7 @@ export default defineComponent({
 </script>
 <style lang="scss">
 .breadcrumb-view {
-  z-index: 999999;
+  z-index: 99;
   padding-top: 5px;
   position: sticky;
   top: 0;

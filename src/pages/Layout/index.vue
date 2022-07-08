@@ -2,7 +2,7 @@
  * @Author: HxB
  * @Date: 2022-05-05 16:49:53
  * @LastEditors: DoubleAm
- * @LastEditTime: 2022-07-07 17:03:41
+ * @LastEditTime: 2022-07-08 11:47:42
  * @Description: layout 入口
  * @FilePath: \vue-admin\src\pages\Layout\index.vue
 -->
@@ -25,6 +25,12 @@
         <layout-tabs />
       </a-layout-content>
     </a-layout>
+
+    <!-- 回到顶部 -->
+    <a-tooltip placement="top" arrow-point-at-center>
+      <template #title>回到顶部</template>
+      <a-back-top :target="backTopTarget" />
+    </a-tooltip>
   </a-layout>
 </template>
 
@@ -47,6 +53,8 @@ export default defineComponent({
     const store = useStore();
     const collapsed = ref<boolean>(false);
 
+    const backTopTarget = () => document.querySelector('main') as HTMLElement;
+
     collapsed.value = store.state.settings.collapsed;
 
     const showRoute = ref<boolean>(true);
@@ -61,7 +69,7 @@ export default defineComponent({
     provide('reloadRoute', reloadRoute);
     provide('showRoute', showRoute);
 
-    return { collapsed };
+    return { collapsed, backTopTarget };
   },
 });
 </script>
