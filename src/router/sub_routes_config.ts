@@ -2,11 +2,36 @@
  * @Author: HxB
  * @Date: 2022-07-07 10:14:09
  * @LastEditors: DoubleAm
- * @LastEditTime: 2022-07-08 15:20:22
+ * @LastEditTime: 2022-07-08 17:36:39
  * @Description: 子路由配置
  * @FilePath: \vue-admin\src\router\sub_routes_config.ts
  */
-const defaultRoutes: any[] = [
+interface RouteConfig {
+  path?: string;
+  name: string;
+  component?: any;
+  icon?: string;
+  redirect?: string;
+  children?: RouteConfig[];
+  alias?: string | string[];
+  beforeEnter?: (to: any, from: any, next: any) => void;
+  props?: boolean | object | (() => object);
+  sensitive?: boolean;
+  strict?: boolean;
+  meta?: {
+    title?: string;
+    hidden?: boolean;
+    keepAlive?: boolean;
+    defaultKeepAlive?: boolean;
+    keepAliveName?: string;
+    roles?: string[] | string;
+    routes?: RouteConfig[];
+    [propName: string]: any;
+  };
+  [propName: string]: any;
+}
+
+const defaultRoutes: RouteConfig[] = [
   {
     path: '/test/x',
     name: 'test_x',
@@ -21,7 +46,7 @@ const defaultRoutes: any[] = [
   },
 ];
 
-export const SUB_ROUTES_A: any[] = [
+export const SUB_ROUTES_A: RouteConfig[] = [
   ...defaultRoutes,
   {
     // path: "/test",
@@ -35,7 +60,6 @@ export const SUB_ROUTES_A: any[] = [
         path: '/test/a',
         name: 'test_a',
         meta: {
-          parentMenuName: 'test',
           title: 'TestA 页面',
           defaultKeepAlive: true, // 动态 keepAlive
           keepAliveName: '403', // keepAlive 名称必须与组件名称一致
@@ -56,7 +80,6 @@ export const SUB_ROUTES_A: any[] = [
         path: '/test/b',
         name: 'test_b',
         meta: {
-          parentMenuName: 'test',
           title: 'TestB 页面',
         },
         icon: 'SmileFilled',
@@ -66,7 +89,6 @@ export const SUB_ROUTES_A: any[] = [
         path: '/test/c',
         name: 'test_c',
         meta: {
-          parentMenuName: 'test',
           title: 'TestC 页面',
           keepAlive: true,
           keepAliveName: '500',
@@ -93,7 +115,6 @@ export const SUB_ROUTES_A: any[] = [
                 name: 'test_demo',
                 icon: 'HeatMapOutlined',
                 meta: {
-                  parentMenuName: ['test', 'sub_menu_a', 'sub_menu_b'],
                   title: '最小子路由 Demo 页面',
                   keepAlive: true,
                   keepAliveName: 'Demo', // keepAlive 名称必须与组件名称一致
@@ -125,7 +146,7 @@ export const SUB_ROUTES_A: any[] = [
   },
 ];
 
-export const SUB_ROUTES_B: any[] = [
+export const SUB_ROUTES_B: RouteConfig[] = [
   ...defaultRoutes,
   {
     path: '/demo/x',

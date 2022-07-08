@@ -3,7 +3,7 @@
  * @Author: HxB
  * @Date: 2022-05-06 18:04:44
  * @LastEditors: DoubleAm
- * @LastEditTime: 2022-07-08 15:23:05
+ * @LastEditTime: 2022-07-08 17:32:40
  * @Description: 主路由配置文件
  * @FilePath: \vue-admin\src\router\index.ts
  */
@@ -15,7 +15,7 @@ const Layout = () => import('@/pages/Layout/index.vue');
 
 const defaultRoute = '/test/x';
 
-export const routes: any[] = [
+export const routes: RouteRecordRaw[] = [
   {
     path: '/',
     name: 'home',

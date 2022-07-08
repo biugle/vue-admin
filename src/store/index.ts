@@ -2,7 +2,7 @@
  * @Author: HxB
  * @Date: 2022-05-07 18:16:01
  * @LastEditors: DoubleAm
- * @LastEditTime: 2022-05-12 17:20:38
+ * @LastEditTime: 2022-07-08 17:23:33
  * @Description: state 定义
  * @FilePath: \vue-admin\src\store\index.ts
  */
@@ -16,6 +16,7 @@ export interface AllState {
   user: UserState;
   tabs: TabState;
   keepAlive: keepAliveState;
+  settings: any;
 }
 
 // 实例化
