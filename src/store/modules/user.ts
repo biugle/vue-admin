@@ -2,7 +2,7 @@
  * @Author: HxB
  * @Date: 2022-05-07 18:16:01
  * @LastEditors: DoubleAm
- * @LastEditTime: 2022-07-07 10:16:17
+ * @LastEditTime: 2022-07-08 10:54:32
  * @Description: user state
  * @FilePath: \vue-admin\src\store\modules\user.ts
  */
@@ -10,7 +10,7 @@ import storage from 'store';
 import { AllState } from '@/store';
 import { ActionContext } from 'vuex';
 import { login } from '@/services/user';
-import { SUB_ROUTES } from '@/router/sub_routes_config';
+import * as ALL_SUB_ROUTES from '@/router/sub_routes_config';
 import { catchPromise } from 'js-xxx';
 
 // 处理用户登录、登出、个人信息、权限路由
@@ -21,6 +21,7 @@ export type UserState = {
   avatar: string;
   roles: string[];
   routes: any[];
+  routeKey: string;
 };
 
 const state: UserState = {
@@ -33,6 +34,7 @@ const state: UserState = {
   // 角色(鉴权)
   roles: [],
   routes: [],
+  routeKey: storage.get('routeKey') ?? 'SUB_ROUTES_A',
 };
 
 const user = {
@@ -46,13 +48,20 @@ const user = {
       state.token = token;
     },
 
+    setRouteKey(state: UserState, routeKey: string) {
+      state.routeKey = routeKey;
+      storage.set('routeKey', routeKey);
+    },
+
     // 设置用户信息
     asyncUserInfo(state: UserState, info: UserState) {
       const { name, avatar, roles } = info ?? {};
       state.name = 'name';
       state.avatar = '';
       state.roles = ['admin'];
-      state.routes = SUB_ROUTES.filter((route: any) => {
+      // eslint-disable-next-line @typescript-eslint/ban-ts-comment
+      // @ts-ignore
+      state.routes = ALL_SUB_ROUTES[state.routeKey].filter((route: any) => {
         return !route?.meta?.roles || route?.meta?.roles?.some((role: string) => state.roles.includes(role));
       });
     },
@@ -66,6 +75,7 @@ const user = {
       state.avatar = '';
       state.roles = [];
       state.routes = [];
+      state.routeKey = 'SUB_ROUTES_A';
     },
   },
 

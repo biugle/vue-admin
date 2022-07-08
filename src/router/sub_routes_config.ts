@@ -2,11 +2,11 @@
  * @Author: HxB
  * @Date: 2022-07-07 10:14:09
  * @LastEditors: DoubleAm
- * @LastEditTime: 2022-07-07 17:59:09
+ * @LastEditTime: 2022-07-08 10:54:20
  * @Description: 子路由配置
  * @FilePath: \vue-admin\src\router\sub_routes_config.ts
  */
-export const SUB_ROUTES: any[] = [
+export const SUB_ROUTES_A: any[] = [
   {
     path: '/test/x',
     name: 'test_x',

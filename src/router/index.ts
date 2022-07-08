@@ -3,7 +3,7 @@
  * @Author: HxB
  * @Date: 2022-05-06 18:04:44
  * @LastEditors: DoubleAm
- * @LastEditTime: 2022-07-07 18:02:19
+ * @LastEditTime: 2022-07-07 18:28:23
  * @Description: 主路由配置文件
  * @FilePath: \vue-admin\src\router\index.ts
  */
@@ -161,4 +161,4 @@ authRoute(router);
 
 export default router;
 export const whiteList = ['/login', '/403', '/404', '/500'];
-export const ROUTE_MENU_CONFIG_ALL_OBJ = ROUTE_MENU_CONFIG_ALL['SUB_ROUTES'];
+export const ROUTE_MENU_CONFIG = ROUTE_MENU_CONFIG_ALL;
