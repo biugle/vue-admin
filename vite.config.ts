@@ -2,17 +2,18 @@
  * @Author: HxB
  * @Date: 2022-05-05 16:49:53
  * @LastEditors: DoubleAm
- * @LastEditTime: 2022-05-12 18:09:50
+ * @LastEditTime: 2022-07-19 21:11:26
  * @Description: vite 配置文件
  * @FilePath: \vue-admin\vite.config.ts
  */
+import path from 'path';
 import { defineConfig } from 'vite';
 import vue from '@vitejs/plugin-vue';
 import vueJsx from '@vitejs/plugin-vue-jsx';
-import path from 'path';
 
 // import.meta.env.VITE_REQUEST_BASE_URL
 
+// eslint-disable-next-line no-undef
 const getPath = _path => path.resolve(__dirname, _path);
 
 // https://vitejs.dev/config/

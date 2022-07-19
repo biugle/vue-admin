@@ -2,22 +2,15 @@
  * @Author: HxB
  * @Date: 2022-05-06 18:07:27
  * @LastEditors: DoubleAm
- * @LastEditTime: 2022-07-08 15:16:52
+ * @LastEditTime: 2022-07-19 21:11:58
  * @Description: 按需动态导入 antd 组件
  * @FilePath: \vue-admin\src\plugins\antd.ts
  */
 import type { App } from 'vue';
 import 'ant-design-vue/dist/antd.min.css';
 // import 'moment/dist/locale/zh-cn';
-
 import { createVNode } from 'vue';
 import * as Icons from '@ant-design/icons-vue';
-
-const Icon = (props: { icon: string }) => {
-  const { icon } = props;
-  return createVNode(Icons[icon as keyof typeof Icons]);
-};
-
 import {
   Result,
   Button,
@@ -41,6 +34,11 @@ import {
   Badge,
   Tag,
 } from 'ant-design-vue';
+
+const Icon = (props: { icon: string }) => {
+  const { icon } = props;
+  return createVNode(Icons[icon as keyof typeof Icons]);
+};
 
 message.config({
   top: '50px',

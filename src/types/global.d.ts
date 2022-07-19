@@ -9,6 +9,7 @@
 import type { message, notification } from 'ant-design-vue';
 // import { ComponentCustomProperties } from 'vue';
 import type { Store } from 'vuex';
+
 declare module '@vue/runtime-core' {
   interface ComponentCustomProperties {
     $message: typeof message;

@@ -36,11 +36,12 @@
 
 <script lang="ts">
 import { defineComponent, nextTick, provide, ref, watch } from 'vue';
+import { useStore } from 'vuex';
 import LayoutMenu from './menu/menu.vue';
 import LayoutTabs from './tabs/tabs.vue';
 import LayoutHeader from './header/header.vue';
 import LayoutNav from './nav/nav.vue';
-import { useStore } from 'vuex';
+
 export default defineComponent({
   name: 'Layout',
   components: {

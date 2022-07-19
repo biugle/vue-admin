@@ -6,8 +6,9 @@
  * @Description: 创建菜单列表
  * @FilePath: \vue-admin\src\pages\Layout\menu\menu_create.tsx
  */
-import { Icon } from '@/plugins/antd';
 import { defineComponent, Slots } from 'vue';
+import { Icon } from '@/plugins/antd';
+
 export default defineComponent({
   components: {},
   props: {

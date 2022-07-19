@@ -7,22 +7,13 @@
  * @FilePath: \vue-admin\src\store\modules\user.ts
  */
 import storage from 'store';
-import { AllState } from '@/store';
 import { ActionContext } from 'vuex';
+import { catchPromise } from 'js-xxx';
+import { AllState } from '@/store';
 import { login } from '@/services/user';
 import * as ALL_SUB_ROUTES from '@/router/sub_routes_config';
-import { catchPromise } from 'js-xxx';
 
 // 处理用户登录、登出、个人信息、权限路由
-
-export type UserState = {
-  token: string;
-  name: string;
-  avatar: string;
-  roles: string[];
-  routes: any[];
-  routeKey: string;
-};
 
 const state: UserState = {
   // 标识
@@ -52,7 +43,7 @@ const user = {
   state,
 
   mutations: {
-    // 设置token
+    // 设置 token
     setToken(state: UserState, token: string) {
       state.token = token;
     },
@@ -121,3 +112,11 @@ const user = {
 };
 
 export default user;
+export type UserState = {
+  token: string;
+  name: string;
+  avatar: string;
+  roles: string[];
+  routes: any[];
+  routeKey: string;
+};

@@ -23,7 +23,7 @@ const $http = XHttp.create(
     // },
     requestHandler: (config: any) => {
       hide = message.loading('正在请求数据...');
-      console.log('requestHandler', config); // 请求前的拦截处理 可自行打印日志log
+      console.log('requestHandler', config); // 请求前的拦截处理 可自行打印日志 log
       // console.log(config?.cancelRequest); // 请求取消函数
     },
     responseHandler: (response: any) => {
@@ -41,7 +41,7 @@ const $http = XHttp.create(
         });
       }
       // return Promise.reject(error); // 是否传递错误到外层 不传递则可以免去每次请求去自定义错误处理
-      console.log('errorHandler', error); // 错误处理 可自行打印日志log
+      console.log('errorHandler', error); // 错误处理 可自行打印日志 log
     },
     setRequestHeaders: (config: any) => {
       // 设置请求头 可以添加 token 等，也可以通过 $http.setAuthToken 来处理

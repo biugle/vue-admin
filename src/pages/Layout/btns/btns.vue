@@ -25,8 +25,8 @@
 <script lang="ts">
 import { defineComponent, inject, nextTick, ref, watch } from 'vue';
 import { useStore } from 'vuex';
-import { ROUTE_KEYS_NAME } from '@/router/sub_routes_config';
 import { useRoute, useRouter } from 'vue-router';
+import { ROUTE_KEYS_NAME } from '@/router/sub_routes_config';
 import { DEFAULT_ROUTE } from '@/router';
 
 export default defineComponent({

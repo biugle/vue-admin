@@ -51,7 +51,6 @@
 </template>
 <script lang="ts">
 import { mapState, useStore } from 'vuex';
-import { TabItem } from '@/store/modules/tabs';
 import {
   defineComponent,
   watch,
@@ -71,6 +70,7 @@ import {
   onBeforeRouteUpdate,
   onBeforeRouteLeave,
 } from 'vue-router';
+import { TabItem } from '@/store/modules/tabs';
 import { DEFAULT_ROUTE } from '@/router';
 
 export default defineComponent({
@@ -82,14 +82,14 @@ export default defineComponent({
     }),
   },
   setup() {
-    // 激活的tab
+    // 激活的 tab
     let activeKey = ref<string>();
 
     const store = useStore();
     const route = useRoute();
     const router = useRouter();
 
-    // 添加tab方法
+    // 添加 tab 方法
     const addTab = (data: RouteLocationNormalizedLoaded) => {
       store.commit('tabs/addTab', {
         fullPath: data.fullPath,

@@ -24,9 +24,9 @@
 </template>
 <script lang="ts">
 import { defineComponent, ref, watch } from 'vue';
-import { ROUTE_MENU_CONFIGS } from '@/router';
 import { useRoute } from 'vue-router';
 import { useStore } from 'vuex';
+import { ROUTE_MENU_CONFIGS } from '@/router';
 
 export default defineComponent({
   name: 'LayoutNav',

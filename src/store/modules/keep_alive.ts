@@ -7,11 +7,6 @@
  * @FilePath: \vue-admin\src\store\modules\keep_alive.ts
  */
 
-// 路由缓存(白)名单
-export type keepAliveState = {
-  includeList: string[];
-};
-
 const state: keepAliveState = {
   // 需缓存路由名称
   includeList: [],
@@ -37,3 +32,7 @@ const keepAlive = {
 };
 
 export default keepAlive;
+// 路由缓存(白)名单
+export type keepAliveState = {
+  includeList: string[];
+};

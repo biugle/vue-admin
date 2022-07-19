@@ -2,7 +2,7 @@
  * @Author: HxB
  * @Date: 2022-05-07 18:16:01
  * @LastEditors: DoubleAm
- * @LastEditTime: 2022-07-08 17:23:33
+ * @LastEditTime: 2022-07-19 21:08:42
  * @Description: state 定义
  * @FilePath: \vue-admin\src\store\index.ts
  */
@@ -11,13 +11,6 @@ import user, { UserState } from './modules/user';
 import tabs, { TabState } from './modules/tabs';
 import keepAlive, { keepAliveState } from './modules/keep_alive';
 import settings from './modules/settings';
-
-export interface AllState {
-  user: UserState;
-  tabs: TabState;
-  keepAlive: keepAliveState;
-  settings: any;
-}
 
 // 实例化
 const store = createStore<AllState>({
@@ -30,3 +23,9 @@ const store = createStore<AllState>({
 });
 
 export default store;
+export interface AllState {
+  user: UserState;
+  tabs: TabState;
+  keepAlive: keepAliveState;
+  settings: any;
+}

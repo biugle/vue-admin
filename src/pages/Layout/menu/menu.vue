@@ -27,11 +27,12 @@
   </div>
 </template>
 <script lang="ts">
-import MenuItem from './menu_create';
 import { useRoute } from 'vue-router';
 import { mapState, useStore } from 'vuex';
 import { defineComponent, ref, watch, onBeforeMount, nextTick } from 'vue';
+import MenuItem from './menu_create';
 import { ROUTE_MENU_CONFIGS } from '@/router';
+
 export default defineComponent({
   name: 'LayoutMenu',
   computed: {

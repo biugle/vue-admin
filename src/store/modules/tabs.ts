@@ -2,25 +2,14 @@
  * @Author: HxB
  * @Date: 2022-05-07 18:16:01
  * @LastEditors: DoubleAm
- * @LastEditTime: 2022-07-08 16:23:58
+ * @LastEditTime: 2022-07-19 21:12:25
  * @Description: tabs state
  * @FilePath: \vue-admin\src\store\modules\tabs.ts
  */
-import router from '@/router';
 import { getRandStr } from 'js-xxx';
 import storage from 'store';
+import router from '@/router';
 // tabs 栏
-export interface TabItem {
-  title: string;
-  path: string;
-  fullPath: string;
-  name?: string;
-  icon?: string;
-}
-
-export type TabState = {
-  tabList: TabItem[];
-};
 
 const state: TabState = {
   tabList: [],
@@ -63,7 +52,7 @@ const tabs = {
 
       // 如果删除的是当前路由
       if (route.path == path) {
-        // 如果删除的是最后一个 tab，则将当前路由跳转到前一个 tab，否则跳转到后一个 tab。
+        // 如果删除的是最后一个 tab，则将当前路由跳转到前一个 tab，否则跳转到后一个 tab 。
         router.push(tabList[tabList.length - 1 === matchIndex ? matchIndex - 1 : matchIndex + 1]['fullPath']);
       }
 
@@ -135,3 +124,13 @@ const tabs = {
 };
 
 export default tabs;
+export interface TabItem {
+  title: string;
+  path: string;
+  fullPath: string;
+  name?: string;
+  icon?: string;
+}
+export type TabState = {
+  tabList: TabItem[];
+};

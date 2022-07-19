@@ -38,7 +38,6 @@
 </template>
 
 <script lang="ts">
-import router from '@/router';
 import { mapState, useStore } from 'vuex';
 import {
   defineComponent,
@@ -50,6 +49,7 @@ import {
   getCurrentInstance,
 } from 'vue';
 import HeaderBtns from '../btns/btns.vue';
+import router from '@/router';
 
 export default defineComponent({
   name: 'LayoutHeader',

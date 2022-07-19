@@ -7,8 +7,8 @@
  * @FilePath: \vue-admin\src\router\auth_route.ts
  */
 import storage from 'store';
-import { whiteList } from '@/router';
 import type { Router } from 'vue-router';
+import { whiteList } from '@/router';
 
 const loginPath = '/login';
 
