@@ -15,6 +15,8 @@
   },
   "husky": {
     "hooks": {
+      "add-script": "prepare : husky install(prepare will run after 'npm install')",
+      "how-to-use": "npx husky add .husky/pre-commit $YOUR_PRE_COMMIT_HOOK_SCRIPT",
       "pre-commit": "npm run lint && npm run time"
     }
   },
@@ -63,5 +65,5 @@
     "url": "git+https://github.com/pandaoh/vue-admin.git"
   },
   "homepage": "https://github.com/pandaoh/vue-admin/blob/master/README.md",
-  "time": "4829501819072022"
+  "time": "1718462120072022"
 }
