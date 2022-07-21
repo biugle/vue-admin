@@ -2,7 +2,7 @@
  * @Author: HxB
  * @Date: 2022-05-05 16:49:53
  * @LastEditors: DoubleAm
- * @LastEditTime: 2022-07-08 11:47:42
+ * @LastEditTime: 2022-07-21 11:43:59
  * @Description: layout 入口
  * @FilePath: \vue-admin\src\pages\Layout\index.vue
 -->
@@ -87,8 +87,7 @@ export default defineComponent({
 
   & .container {
     padding: 0 10px;
-    overflow-y: auto;
-    overflow-x: hidden;
+    overflow: auto;
     background: #f0f2f5;
   }
 

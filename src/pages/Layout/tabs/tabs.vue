@@ -2,12 +2,12 @@
  * @Author: HxB
  * @Date: 2022-05-05 16:49:53
  * @LastEditors: DoubleAm
- * @LastEditTime: 2022-07-08 18:10:02
+ * @LastEditTime: 2022-07-21 11:55:07
  * @Description: 标签页组件
  * @FilePath: \vue-admin\src\pages\Layout\tabs\tabs.vue
 -->
 <template>
-  <div style="width: 100%; height: 100%">
+  <div>
     <a-tabs
       v-model:activeKey="activeKey"
       type="editable-card"
@@ -205,9 +205,8 @@ export default defineComponent({
 .main-container {
   background-color: #fff;
   width: 100%;
-  height: 100%;
-  min-height: 280px;
-  overflow: hidden;
+  min-height: calc(100vh - 64px - 27px - 50px - 5px);
+  margin-bottom: 5px;
 }
 
 .loading {
