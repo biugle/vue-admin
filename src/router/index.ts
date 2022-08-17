@@ -3,7 +3,7 @@
  * @Author: HxB
  * @Date: 2022-05-06 18:04:44
  * @LastEditors: DoubleAm
- * @LastEditTime: 2022-07-19 21:08:23
+ * @LastEditTime: 2022-08-17 11:47:24
  * @Description: 主路由配置文件
  * @FilePath: \vue-admin\src\router\index.ts
  */
@@ -25,6 +25,7 @@ export const routes: RouteRecordRaw[] = [
     meta: {
       title: '首页',
     },
+    children: [],
   },
   {
     path: '/login',

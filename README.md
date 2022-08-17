@@ -30,7 +30,7 @@
 
 * Vue 3.x
 * TypeScript
-* Vite 2.x
+* Vite 3.x
 * Store
 * Scss/Less
 * Ant Design Vue 3.x
@@ -69,7 +69,7 @@ xcmd create-vue-admin [dir]
 * [Ant Design Vue](https://antdv.com/components/overview-cn/)
 * [Vue 3](https://v3.cn.vuejs.org/guide/introduction.html)
 * [Scss/Less](https://a.biugle.cn/sass_scss_less/)
-* [Vite](https://cn.vitejs.dev/guide/)
+* [Vite](https://vitejs.cn/guide/)
 * [XHttp](https://www.npmjs.com/package/js-xhttp)
 
 ## Others

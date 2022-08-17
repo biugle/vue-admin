@@ -2,7 +2,7 @@
  * @Author: HxB
  * @Date: 2022-05-05 16:49:53
  * @LastEditors: DoubleAm
- * @LastEditTime: 2022-07-19 21:11:26
+ * @LastEditTime: 2022-08-17 11:41:24
  * @Description: vite 配置文件
  * @FilePath: \vue-admin\vite.config.ts
  */
@@ -25,6 +25,13 @@ export default defineConfig(({ command, mode }) => {
       outDir: 'dist',
       assetsDir: 'assets',
       minify: 'terser',
+      terserOptions: {
+        // 生产环境去除 console
+        compress: {
+          drop_console: true,
+          drop_debugger: true,
+        },
+      },
     },
     publicDir: getPath('public'), // 静态资源服务的文件夹
     plugins: [vue(), vueJsx()],
@@ -33,7 +40,15 @@ export default defineConfig(({ command, mode }) => {
         '@': getPath('src'),
       },
     },
+    preview: {
+      port: 9868,
+    },
     server: {
+      cors: true,
+      open: true,
+      hmr: true,
+      host: true,
+      port: 3000,
       proxy: {
         '/api': {
           target: 'http://a.biugle.cn/',
