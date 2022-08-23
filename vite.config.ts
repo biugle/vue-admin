@@ -2,7 +2,7 @@
  * @Author: HxB
  * @Date: 2022-05-05 16:49:53
  * @LastEditors: DoubleAm
- * @LastEditTime: 2022-08-17 11:41:24
+ * @LastEditTime: 2022-08-23 18:25:01
  * @Description: vite 配置文件
  * @FilePath: \vue-admin\vite.config.ts
  */
@@ -19,6 +19,7 @@ const getPath = _path => path.resolve(__dirname, _path);
 // https://vitejs.dev/config/
 export default defineConfig(({ command, mode }) => {
   return {
+    // envPrefix: 'VITE_', // 以 envPrefix 开头的环境变量会通过 import.meta.env 暴露在你的客户端源码中。 default: 'VITE_'
     base: './', // https://vitejs.cn/config/#base 公共基础路径
     build: {
       target: 'modules',

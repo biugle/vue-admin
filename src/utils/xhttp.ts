@@ -1,8 +1,8 @@
 /*
  * @Author: HxB
- * @Date: 2022-04-13 11:18:13
+ * @Date: 2022-05-07 11:18:13
  * @LastEditors: DoubleAm
- * @LastEditTime: 2022-06-01 18:25:16
+ * @LastEditTime: 2022-08-23 18:27:22
  * @Description: 全局请求工具
  * @FilePath: \vue-admin\src\utils\xhttp.ts
  */
