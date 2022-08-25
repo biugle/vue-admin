@@ -2,7 +2,7 @@
  * @Author: HxB
  * @Date: 2022-07-07 10:14:09
  * @LastEditors: DoubleAm
- * @LastEditTime: 2022-07-08 17:36:39
+ * @LastEditTime: 2022-08-25 09:46:33
  * @Description: 子路由配置
  * @FilePath: \vue-admin\src\router\sub_routes_config.ts
  */
@@ -120,6 +120,9 @@ export const SUB_ROUTES_A: RouteConfig[] = [
                   keepAliveName: 'Demo', // keepAlive 名称必须与组件名称一致
                 },
                 component: () => import('@/pages/test_pages/demo.vue'),
+                // 若页面有多个 router-view，可以指定显示在哪个 router-view 中。
+                // <router-view name="test_demo" />
+                // components: { test_demo: TestDemo }
               },
             ],
           },
