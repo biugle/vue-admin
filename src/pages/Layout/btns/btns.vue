@@ -2,7 +2,7 @@
  * @Author: HxB
  * @Date: 2022-07-07 16:57:08
  * @LastEditors: DoubleAm
- * @LastEditTime: 2022-07-08 17:06:14
+ * @LastEditTime: 2022-08-29 18:27:01
  * @Description: 路由菜单切换按钮
  * @FilePath: \vue-admin\src\pages\Layout\btns\btns.vue
 -->
@@ -45,6 +45,7 @@ export default defineComponent({
           fullPath: route.fullPath,
           path: route.path,
           name: route.name,
+          keepAliveName: route?.meta?.keepAliveName ?? route.name,
           title: route.meta.title,
         });
         store.commit('tabs/storageTabs');
