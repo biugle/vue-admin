@@ -2,7 +2,7 @@
  * @Author: HxB
  * @Date: 2022-05-05 16:49:53
  * @LastEditors: DoubleAm
- * @LastEditTime: 2022-08-29 18:30:58
+ * @LastEditTime: 2022-08-30 15:47:14
  * @Description: 标签页组件
  * @FilePath: \vue-admin\src\pages\Layout\tabs\tabs.vue
 -->
@@ -194,13 +194,24 @@ export default defineComponent({
         // let result: boolean = document.querySelectorAll('.tabs-view .ant-tabs-tab').length === 1;
         // onlyChild.value = result;
         onlyChild.value = store.state.tabs.tabList.length === 1;
-        // 关闭标签页时需取消已关闭页面的 keepAlive
-        store.state.keepAlive.includeList?.forEach((routeName: string) => {
-          if (store.state.tabs.tabList.every((tab: any) => tab.keepAliveName !== routeName)) {
-            store.commit('keepAlive/removeKeepAlive', routeName);
-          }
-        });
         store.commit('tabs/storageTabs');
+        setTimeout(() => {
+          checkKeepAlive();
+        }, 0);
+      });
+    };
+
+    const checkKeepAlive = () => {
+      // 关闭标签页时需取消已关闭页面的 keepAlive
+      let removeKeepAlive: string[] = [];
+      store.state.keepAlive.includeList?.forEach((routeName: string) => {
+        if (store.state.tabs.tabList.every((tab: any) => tab.keepAliveName !== routeName)) {
+          removeKeepAlive.push(routeName);
+        }
+      });
+      console.log('removeKeepAlive', removeKeepAlive);
+      removeKeepAlive?.forEach(keepAliveName => {
+        store.commit('keepAlive/removeKeepAlive', keepAliveName);
       });
     };
 

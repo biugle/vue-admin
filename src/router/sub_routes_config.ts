@@ -2,7 +2,7 @@
  * @Author: HxB
  * @Date: 2022-07-07 10:14:09
  * @LastEditors: DoubleAm
- * @LastEditTime: 2022-08-25 09:46:33
+ * @LastEditTime: 2022-08-30 15:06:34
  * @Description: 子路由配置
  * @FilePath: \vue-admin\src\router\sub_routes_config.ts
  */
@@ -135,6 +135,8 @@ export const SUB_ROUTES_A: RouteConfig[] = [
     name: 'test_y',
     meta: {
       title: 'TestY 页面',
+      keepAlive: true,
+      keepAliveName: 'TestY',
     },
     component: () => import('@/pages/test_pages/y.vue'),
   },
