@@ -2,7 +2,7 @@
  * @Author: HxB
  * @Date: 2022-05-07 11:18:13
  * @LastEditors: DoubleAm
- * @LastEditTime: 2022-08-23 18:27:22
+ * @LastEditTime: 2022-09-02 18:15:57
  * @Description: 全局请求工具
  * @FilePath: \vue-admin\src\utils\xhttp.ts
  */
@@ -16,6 +16,7 @@ const $http = XHttp.create(
   {
     timeout: 5000, // 超时时间 default: 30000
     cancelDuplicatedRequest: true, // 是否取消重复请求 default: true
+    rejectErrorPromise: false,
     // retryConfig: {
     //   // 重试配置
     //   retry: 1, // 次数
@@ -27,12 +28,13 @@ const $http = XHttp.create(
       // console.log(config?.cancelRequest); // 请求取消函数
     },
     responseHandler: (response: any) => {
+      console.log(response.config);
       // 可在此处统一处理返回数据提示
       if (response.data.code != 0) {
         message.error(response.data.msg);
       }
     },
-    errorHandler: (error: any) => {
+    errorHandler: (error: any, requestConfig: any) => {
       // 统一错误处理
       if (!XHttp.isCancel(error) && !error.message?.includes('custom-error')) {
         notification.error({
@@ -42,14 +44,17 @@ const $http = XHttp.create(
       }
       // return Promise.reject(error); // 是否传递错误到外层 不传递则可以免去每次请求去自定义错误处理
       console.log('errorHandler', error); // 错误处理 可自行打印日志 log
+      if (requestConfig.rejectErrorPromise) {
+        return Promise.reject(error);
+      }
     },
     setRequestHeaders: (config: any) => {
       // 设置请求头 可以添加 token 等，也可以通过 $http.setAuthToken 来处理
       return config; // 返回配置对象，可修改请求头。必须返回一个请求头对象，否则会抛出错误。
     },
-    requestFinally: () => {
+    requestFinally: (requestConfig: any) => {
       hide();
-      console.log('requestFinally Hooks'); // 请求完成时的回调，无论结果如何。
+      console.log('requestFinally Hooks', requestConfig); // 请求完成时的回调，无论结果如何。
     },
   },
   // axios 配置
