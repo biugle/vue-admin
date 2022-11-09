@@ -2,7 +2,7 @@
  * @Author: HxB
  * @Date: 2022-05-06 18:07:27
  * @LastEditors: DoubleAm
- * @LastEditTime: 2022-07-19 21:11:58
+ * @LastEditTime: 2022-11-09 16:09:52
  * @Description: 按需动态导入 antd 组件
  * @FilePath: \vue-admin\src\plugins\antd.ts
  */
@@ -82,7 +82,7 @@ const antdComponents = [
   Tag,
 ];
 
-// 应用组件
+// 引入组件
 export const antd = {
   install: (app: App) => {
     // 图标
