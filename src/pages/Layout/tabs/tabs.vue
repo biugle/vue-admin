@@ -110,7 +110,7 @@ export default defineComponent({
       }
     };
 
-    watch(route, to => {
+    watch(route, (to) => {
       if (!to.meta.hidden) {
         addTab(to);
         setKeepAlive(to);
@@ -185,7 +185,7 @@ export default defineComponent({
 
     const onlyChild = ref<boolean>(false);
 
-    watch(store.state.tabs.tabList, tabList => {
+    watch(store.state.tabs.tabList, (tabList) => {
       checkTabs();
     });
 
@@ -210,7 +210,7 @@ export default defineComponent({
         }
       });
       console.log('removeKeepAlive', removeKeepAlive);
-      removeKeepAlive?.forEach(keepAliveName => {
+      removeKeepAlive?.forEach((keepAliveName) => {
         store.commit('keepAlive/removeKeepAlive', keepAliveName);
       });
     };

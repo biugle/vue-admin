@@ -11,7 +11,7 @@ import XHttp from '@/utils/xhttp';
 
 export function login(data: any) {
   return import.meta.env.MODE === 'development'
-    ? new Promise(resolve => {
+    ? new Promise((resolve) => {
         resolve({
           code: 0,
           data: {

@@ -29,9 +29,9 @@ const state: UserState = {
 };
 
 function getAuthRoutes(routes: any[], roles: string[]) {
-  return routes.filter(route => {
+  return routes.filter((route) => {
     if (route.meta && route.meta.roles) {
-      return roles.some(role => route.meta.roles.includes(role));
+      return roles.some((role) => route.meta.roles.includes(role));
     }
     return true;
   });

@@ -22,7 +22,7 @@
               </a-input-password>
             </a-form-item>
             <a-form-item>
-              <a-button type="primary" @click="handleSubmit()"> 登录 </a-button>
+              <a-button type="primary" @click="handleSubmit()">登录</a-button>
             </a-form-item>
           </a-form>
         </div>
@@ -77,7 +77,7 @@ export default defineComponent({
 
     const handleSubmit = (): void => {
       formRef.value.validate().then(() => {
-        store.dispatch('user/login', form).then(e => {
+        store.dispatch('user/login', form).then((e) => {
           const route = router.currentRoute.value;
           const url = route.query.redirect || '/';
           store.commit('user/asyncUserInfo');

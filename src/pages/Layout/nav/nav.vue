@@ -36,7 +36,7 @@ export default defineComponent({
 
     const routes = ref(ROUTE_MENU_CONFIGS[route.name as string].breadcrumbRoutes);
 
-    watch(route, to => {
+    watch(route, (to) => {
       routes.value = ROUTE_MENU_CONFIGS[to.name as string].breadcrumbRoutes;
     });
 

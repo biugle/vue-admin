@@ -10,11 +10,12 @@ import path from 'path';
 import { defineConfig } from 'vite';
 import vue from '@vitejs/plugin-vue';
 import vueJsx from '@vitejs/plugin-vue-jsx';
+import eslint from 'vite-plugin-eslint';
 
 // import.meta.env.VITE_REQUEST_BASE_URL
 
 // eslint-disable-next-line no-undef
-const getPath = _path => path.resolve(__dirname, _path);
+const getPath = (_path) => path.resolve(__dirname, _path);
 
 // https://vitejs.dev/config/
 export default defineConfig(({ command, mode }) => {
@@ -35,7 +36,13 @@ export default defineConfig(({ command, mode }) => {
       },
     },
     publicDir: getPath('public'), // 静态资源服务的文件夹
-    plugins: [vue(), vueJsx()],
+    plugins: [
+      eslint({
+        fix: true,
+      }),
+      vue(),
+      vueJsx(),
+    ],
     resolve: {
       alias: {
         '@': getPath('src'),
@@ -54,7 +61,7 @@ export default defineConfig(({ command, mode }) => {
         '/api': {
           target: 'http://a.biugle.cn/',
           changeOrigin: true,
-          rewrite: path => path.replace(/^\/api/, ''),
+          rewrite: (path) => path.replace(/^\/api/, ''),
         },
       },
     },

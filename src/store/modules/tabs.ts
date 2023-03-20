@@ -26,7 +26,7 @@ const tabs = {
       let result = true;
 
       // 防止重复添加 与 防止已存在 tab 移动到最后
-      const matchIndex: number = tabList.findIndex(tab => tab.path === newTab.path || tab.name === newTab.name);
+      const matchIndex: number = tabList.findIndex((tab) => tab.path === newTab.path || tab.name === newTab.name);
       if (matchIndex != -1) {
         tabList[matchIndex] = newTab;
         result = false;
@@ -48,7 +48,7 @@ const tabs = {
         return;
       }
 
-      const matchIndex = tabList.findIndex(tab => tab.path === path);
+      const matchIndex = tabList.findIndex((tab) => tab.path === path);
 
       // 如果删除的是当前路由
       if (route.path == path) {
@@ -67,7 +67,7 @@ const tabs = {
         return;
       }
 
-      const nowRouteIndex = tabList.findIndex(tab => tab.path === route.path);
+      const nowRouteIndex = tabList.findIndex((tab) => tab.path === route.path);
 
       // 如果删除包含当前路由，则删除后跳转到触发删除的 tab
       if (index < nowRouteIndex) {
@@ -85,7 +85,7 @@ const tabs = {
         return;
       }
 
-      const nowRouteIndex = tabList.findIndex(tab => tab.path === route.path);
+      const nowRouteIndex = tabList.findIndex((tab) => tab.path === route.path);
 
       // 如果删除包含当前路由，则删除后跳转到触发删除的 tab
       if (index > nowRouteIndex) {
