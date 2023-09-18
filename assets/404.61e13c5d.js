@@ -1,1 +1,0 @@
-import{E as r}from"./ErrorPage.687ccfbe.js";import{_ as e,d as t,l as o,e as s,r as a}from"./index.1b7468c6.js";const n=e(t({name:"404",components:{ErrorPage:r}}),[["render",function(r,e,t,n,c,i){const m=a("error-page");return s(),o(m,{status:"404",title:"404 Not Found.","sub-title":"对不起，页面找不到啦！"})}]]);export{n as default};

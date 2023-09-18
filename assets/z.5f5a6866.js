@@ -1,0 +1,1 @@
+import{T as e}from"./HelloWorld.bcafdefe.js";import{_ as s,d as t,r as o,l as r,e as a}from"./index.6ff52ee0.js";const n=s(t({name:"TestZ",components:{Test:e}}),[["render",function(e,s,t,n,f,m){const d=o("test");return a(),r(d,{msg:"TestZ"})}]]);export{n as default};

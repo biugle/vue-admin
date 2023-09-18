@@ -1,1 +1,0 @@
-import{T as s}from"./HelloWorld.3331dc09.js";import{_ as e,d as o,l as t,e as r,r as n}from"./index.1b7468c6.js";const a=e(o({name:"Demo",components:{Test:s}}),[["render",function(s,e,o,a,m,c){const d=n("test");return r(),t(d,{msg:"Demo"})}]]);export{a as default};

@@ -1,1 +1,0 @@
-import{T as e}from"./HelloWorld.3331dc09.js";import{_ as t,d as s,l as a,e as r,r as n}from"./index.1b7468c6.js";let o;const l=t(s({name:"TestY",components:{Test:e},activated(){o||(o=setInterval((()=>{}),1e3))},deactivated(){clearInterval(o),o=null}}),[["render",function(e,t,s,o,l,c){const d=n("test");return r(),a(d,{msg:"TestY"})}]]);export{l as default};
