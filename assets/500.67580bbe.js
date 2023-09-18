@@ -1,0 +1,1 @@
+import{E as r}from"./ErrorPage.687ccfbe.js";import{_ as e,d as t,l as s,e as a,r as o}from"./index.1b7468c6.js";const n=e(t({name:"500",components:{ErrorPage:r}}),[["render",function(r,e,t,n,c,i){const m=o("error-page");return a(),s(m,{status:"500",title:"500 Internal Server Error.","sub-title":"对不起，服务器出错了！"})}]]);export{n as default};
