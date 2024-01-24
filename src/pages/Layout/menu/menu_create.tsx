@@ -21,12 +21,12 @@ export default defineComponent({
     const menuSub = (router: any) => {
       const titleText = router?.meta?.title ?? 'unknown';
       const subSlots: Slots = {
-        title: () => [<span title={titleText}>{titleText}</span>],
-        icon: () => [
+        title: () => <span title={titleText}>{titleText}</span>,
+        icon: () => (
           <span title={titleText}>
             <Icon icon={router.icon ?? 'FolderOpenOutlined'} />
-          </span>,
-        ],
+          </span>
+        ),
       };
       return (
         <a-sub-menu v-slots={subSlots} key={router.name}>
@@ -38,7 +38,7 @@ export default defineComponent({
     const menuItem = (router: any) => {
       const titleText = router?.meta?.title ?? 'unknown';
       const itemSlots: Slots = {
-        icon: () => [<Icon icon={router.icon ?? 'UnorderedListOutlined'} />],
+        icon: () => <Icon icon={router.icon ?? 'UnorderedListOutlined'} />,
       };
       return (
         <a-menu-item v-slots={itemSlots} key={router.name} title={titleText}>
@@ -53,8 +53,9 @@ export default defineComponent({
       } else if (!router.meta.hidden) {
         return menuItem(router);
       }
+      return null;
     };
 
-    return menuCreate(this.router as any);
+    return menuCreate(this.router);
   },
 });

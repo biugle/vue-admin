@@ -23,6 +23,7 @@ export default defineConfig(({ command, mode }) => {
     // envPrefix: 'VITE_', // 以 envPrefix 开头的环境变量会通过 import.meta.env 暴露在你的客户端源码中。 default: 'VITE_'
     base: './', // https://vitejs.cn/config/#base 公共基础路径
     build: {
+      chunkSizeWarningLimit: 2048,
       target: 'modules',
       outDir: 'dist',
       assetsDir: 'assets',

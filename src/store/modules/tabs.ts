@@ -2,7 +2,7 @@
  * @Author: HxB
  * @Date: 2022-05-07 18:16:01
  * @LastEditors: DoubleAm
- * @LastEditTime: 2022-07-19 21:12:25
+ * @LastEditTime: 2024-01-24 10:59:55
  * @Description: tabs state
  * @FilePath: \vue-admin\src\store\modules\tabs.ts
  */
@@ -109,7 +109,7 @@ const tabs = {
       state.tabList.splice(index, 1, refreshTab);
       router.replace({
         name: refreshTab.name,
-        params: { refresh: getRandStr() },
+        params: { refresh: getRandStr(6) },
       });
     },
 

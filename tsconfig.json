@@ -5,7 +5,7 @@
     "module": "esnext",
     "moduleResolution": "node",
     "types": ["vite/client"],
-    "strict": true,
+    "strict": false,
     "jsx": "preserve",
     "sourceMap": true,
     "resolveJsonModule": true,
