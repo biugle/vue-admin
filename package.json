@@ -9,7 +9,7 @@
     "lint": "npm run prettier && npm run eslint",
     "eslint": "eslint ./ --fix --ext .ts,.tsx,.js,.jsx,.vue",
     "prettier": "prettier --write ./**/*.{ts,tsx,js,jsx,vue,html,css,scss,less}",
-    "update-x": "npm i js-xhttp js-xxx js-xcall",
+    "update:hooks": "npm i js-xhttp js-xxx js-xcall && npm i js-xcmd -D",
     "clean": "xcmd clean",
     "time": "xcmd update-time"
   },
@@ -23,9 +23,9 @@
   "dependencies": {
     "@ant-design/icons-vue": "^6.1.0",
     "ant-design-vue": "^3.2.20",
-    "js-xcall": "^1.3.0",
+    "js-xcall": "^1.3.1",
     "js-xhttp": "^1.6.1",
-    "js-xxx": "^2.2.0",
+    "js-xxx": "^2.2.17",
     "store": "^2.0.12",
     "vue": "^3.3.13",
     "vue-router": "^4.1.6",
@@ -47,7 +47,7 @@
     "eslint-plugin-vue": "^9.19.2",
     "eslint-plugin-zob": "^0.4.0",
     "husky": "^8.0.1",
-    "js-xcmd": "^1.4.8",
+    "js-xcmd": "^1.5.5",
     "prettier": "^2.6.2",
     "sass": "^1.51.0",
     "terser": "^5.14.2",
@@ -61,12 +61,12 @@
   "blog": "http://a.biugle.cn",
   "license": "MIT",
   "bugs": {
-    "url": "https://github.com/pandaoh/vue-admin/issues"
+    "url": "https://github.com/biugle/vue-admin/issues"
   },
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/pandaoh/vue-admin.git"
+    "url": "git+https://github.com/biugle/vue-admin.git"
   },
-  "homepage": "https://github.com/pandaoh/vue-admin/blob/master/README.md",
+  "homepage": "https://github.com/biugle/vue-admin/blob/master/README.md",
   "time": "1718462120072022"
 }

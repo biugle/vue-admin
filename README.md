@@ -41,7 +41,7 @@
 ## Use
 
 ```bash
-git clone https://github.com/pandaoh/vue-admin.git
+git clone https://github.com/biugle/vue-admin.git
 
 npm i -g js-xcmd
 xcmd create-vue-admin [dir]
@@ -74,8 +74,8 @@ xcmd create-vue-admin [dir]
 
 ## Others
 
-* [Issue](https://github.com/pandaoh/vue-admin/issues)
-* [Pull Request](https://github.com/pandaoh/vue-admin/pulls)
+* [Issue](https://github.com/biugle/vue-admin/issues)
+* [Pull Request](https://github.com/biugle/vue-admin/pulls)
 * [hxbpandaoh@163.com](mailto:hxbpandaoh@163.com)
 * [Blog](http://a.biugle.cn)
 * Leo He
