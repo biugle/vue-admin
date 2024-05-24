@@ -2,12 +2,12 @@
  * @Author: HxB
  * @Date: 2022-05-05 16:49:53
  * @LastEditors: DoubleAm
- * @LastEditTime: 2022-05-12 17:38:00
+ * @LastEditTime: 2024-05-24 14:25:14
  * @Description: app 入口
  * @FilePath: \vue-admin\src\App.vue
 -->
 <template>
-  <a-config-provider v-bind="antdConfig">
+  <a-config-provider v-bind="antdConfig" :key="lang" :title="lang">
     <router-view v-slot="{ Component }" v-if="showPage">
       <transition>
         <component :is="Component" />
@@ -19,6 +19,7 @@
 <script lang="ts">
 import { defineComponent } from 'vue';
 import zhCN from 'ant-design-vue/es/locale/zh_CN';
+import { mapState } from 'vuex';
 
 export default defineComponent({
   name: 'App',
@@ -33,6 +34,11 @@ export default defineComponent({
     if (this.$route.redirectedFrom || this.$route.meta.hidden) {
       this.$router.push(this.$store.state.settings.lastRoute);
     }
+  },
+  computed: {
+    ...mapState({
+      lang: (state: any) => state.settings.lang,
+    }),
   },
   data() {
     // https://www.antdv.com/components/config-provider-cn#API

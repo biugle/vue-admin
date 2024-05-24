@@ -2,17 +2,19 @@
  * @Author: HxB
  * @Date: 2022-05-07 18:16:01
  * @LastEditors: DoubleAm
- * @LastEditTime: 2022-05-12 17:06:52
+ * @LastEditTime: 2024-05-24 14:13:09
  * @Description: 设置 state
  * @FilePath: \vue-admin\src\store\modules\settings.ts
  */
 import storage from 'store';
+import { i18nVue } from '@/locales/i18n';
 
 // 处理全局设置持久化
 
 const defaultSettings = {
   collapsed: false,
   lastRoute: '/',
+  lang: i18nVue.getLang(),
 };
 
 const state = storage.get('settings') ?? defaultSettings;
