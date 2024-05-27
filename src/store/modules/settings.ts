@@ -2,7 +2,7 @@
  * @Author: HxB
  * @Date: 2022-05-07 18:16:01
  * @LastEditors: DoubleAm
- * @LastEditTime: 2024-05-24 14:13:09
+ * @LastEditTime: 2024-05-27 09:53:20
  * @Description: 设置 state
  * @FilePath: \vue-admin\src\store\modules\settings.ts
  */
@@ -17,7 +17,7 @@ const defaultSettings = {
   lang: i18nVue.getLang(),
 };
 
-const state = storage.get('settings') ?? defaultSettings;
+const state = Object.assign(defaultSettings, storage.get('settings') ?? {});
 
 const settings = {
   namespaced: true,
@@ -37,7 +37,7 @@ const settings = {
     },
 
     asyncSettings(state: any) {
-      const newState = storage.get('settings') ?? defaultSettings;
+      const newState = Object.assign(defaultSettings, storage.get('settings') ?? {});
       for (const key in newState) {
         // eslint-disable-next-line no-prototype-builtins
         if (state.hasOwnProperty(key)) {

@@ -2,12 +2,12 @@
  * @Author: HxB
  * @Date: 2022-05-05 16:49:53
  * @LastEditors: DoubleAm
- * @LastEditTime: 2024-05-24 14:25:14
+ * @LastEditTime: 2024-05-27 10:00:38
  * @Description: app 入口
  * @FilePath: \vue-admin\src\App.vue
 -->
 <template>
-  <a-config-provider v-bind="antdConfig" :key="lang" :title="lang">
+  <a-config-provider v-bind="antdConfig" :title="lang">
     <router-view v-slot="{ Component }" v-if="showPage">
       <transition>
         <component :is="Component" />
