@@ -7,6 +7,7 @@
     "build": "vue-tsc --noEmit && vite build",
     "server": "npm run build && vite preview --host",
     "lint": "npm run prettier && npm run eslint",
+    "lint-staged": "npx lint-staged",
     "eslint": "eslint ./ --fix --ext .ts,.tsx,.js,.jsx,.vue",
     "prettier": "prettier --write ./**/*.{ts,tsx,js,jsx,vue,html,css,scss,less}",
     "update:hooks": "npm i js-xhttp js-xxx js-xcall && npm i js-xcmd -D",
@@ -25,7 +26,7 @@
     "ant-design-vue": "^3.2.20",
     "js-xcall": "^1.3.1",
     "js-xhttp": "^1.6.1",
-    "js-xxx": "^2.2.17",
+    "js-xxx": "^2.2.19",
     "store": "^2.0.12",
     "vue": "^3.3.13",
     "vue-router": "^4.1.6",
@@ -47,9 +48,10 @@
     "eslint-plugin-vue": "^9.19.2",
     "eslint-plugin-zob": "^0.4.0",
     "husky": "^8.0.1",
-    "js-xcmd": "^1.5.5",
+    "js-xcmd": "^1.5.6",
     "prettier": "^2.6.2",
     "sass": "^1.51.0",
+    "lint-staged": "^13.3.0",
     "terser": "^5.14.2",
     "typescript": "^4.5.4",
     "vite": "^4.5.1",
@@ -68,5 +70,18 @@
     "url": "git+https://github.com/biugle/vue-admin.git"
   },
   "homepage": "https://github.com/biugle/vue-admin/blob/master/README.md",
+  "lint-staged": {
+    "**/*.{js,jsx,ts,tsx,vue,html,css,scss,less}": [
+      "prettier --write",
+      "eslint --fix",
+      "git add ."
+    ]
+  },
+  "packageManager": "npm@8.0.0",
+  "engines": {
+    "node": ">=14",
+    "npm": ">=8.0.0",
+    "git": ">=2.30.0"
+  },
   "time": "1718462120072022"
 }
